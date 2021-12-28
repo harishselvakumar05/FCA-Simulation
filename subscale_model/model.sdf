@@ -995,11 +995,14 @@
       </collision>
     </link>
 
-    <!--Joint for Left Aileron-->
+   <!--Joint for Left Aileron-->
     <joint name='left_aileron_joint' type = 'revolute'>
       <parent>left_wing</parent>
       <child>left_aileron</child>
       <pose>0.001717 0.004642 0 0 -0 0</pose> <!--TODO-->
+      <dynamics>
+        <friction>0.5</friction>
+      </friction>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -1007,7 +1010,9 @@
           <upper>0.35</upper>
           <velocity>1</velocity> <!--Max velocity/effort? Also is effort similar to torqe or-->
           <effort>1</effort>
+        </limit>
       </axis>
+    </joint>
 
     <!--Joint for Right Aileron-->
     <joint name='right_aileron_joint' type = 'revolute'>
@@ -1021,8 +1026,9 @@
           <upper>0.35</upper>
           <velocity>1</velocity>
           <effort>1</effort>
+        </limit>
       </axis>
-
+    </joint>
 
     <!--Joint for Right Elevator-->
     <joint name='right_elevator_joint' type = 'revolute'>
@@ -1032,11 +1038,13 @@
       <axis>00
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-0.26</lower>
+          <lower>-0.26</lower>00
           <upper>0.35</upper>
           <velocity>1</velocity>
           <effort>1</effort>
+        </limit>
       </axis>
+    </joint>
 
     <!--Joint for Right Elevator-->
     <joint name='left_elevator_joint' type = 'revolute'>
@@ -1050,7 +1058,9 @@
           <upper>0.35</upper>
           <velocity>1</velocity>
           <effort>78.177</effort>
+        </limit>
       </axis>
+    </joint>
 
     <!--Joint for Rudder-->
     <joint name='rudder_joint' type = 'revolute'>
@@ -1064,8 +1074,9 @@
           <upper>0.35</upper>
           <velocity>1</velocity>
           <effort>1</effort>
+        </limit>
       </axis>
-
+    </joint>
     <static>0</static>
     <allow_auto_disable>1</allow_auto_disable>
   </model> 
