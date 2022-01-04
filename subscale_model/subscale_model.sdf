@@ -1,4 +1,3 @@
-<!--Make sure to change paths for URIs for your vm-->
 <?xml version='1.0'?>
 <sdf version='1.7'>
   <model name='subscale_model'>
