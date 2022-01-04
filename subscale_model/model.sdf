@@ -1,6 +1,7 @@
+<!--Make sure to change paths for URIs for your vm-->
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name='Full_Subscale'>
+  <model name='subscale_model'>
   <join
   
     <link name='fuselage'>
@@ -26,7 +27,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage (1).stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage (1).stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -53,7 +54,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage (1).stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage (1).stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -121,7 +122,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage 1.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 1.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -142,7 +143,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage 1.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 1.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -210,7 +211,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Stabalizers.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Stabalizers.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -231,7 +232,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Stabalizers.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Stabalizers.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -299,7 +300,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage 2.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 2.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -320,7 +321,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage 2.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 2.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -348,9 +349,9 @@
             <threshold>1e+06</threshold>
           </bounce>
           <contact>
-            <collide_without_contact>0</collide_without_contact>
+            <collide_without_0contact>0</collide_without_contact>
             <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
+            <collide_bitmaskyt>1</collide_bitmask>
             <ode>
               <soft_cfm>0</soft_cfm>
               <soft_erp>0.2</soft_erp>
@@ -358,7 +359,7 @@
               <kd>1</kd>
               <max_vel>0.01</max_vel>
               <min_depth>0</min_depth>
-            </ode>
+            </ode>0
             <bullet>
               <split_impulse>1</split_impulse>
               <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
@@ -388,7 +389,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Aileron.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Aileron.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -409,7 +410,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Aileron.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Aileron.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -477,7 +478,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Elevator.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Elevator.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -498,7 +499,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Elevator.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Elevator.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -566,7 +567,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Wing.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Wing.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -587,7 +588,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Wing.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Wing.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -655,7 +656,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Aileron.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Aileron.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -676,16 +677,16 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Aileron.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Aileron.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
         <surface>
           <friction>
-            <ode>
+            <ode>0.
               <mu>1</mu>
               <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
+              <fdir1>0 0 0</fdir1>0
               <slip1>0</slip1>
               <slip2>0</slip2>
             </ode>
@@ -744,7 +745,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Elevator.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Elevator.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -765,7 +766,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Elevator.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Elevator.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -833,7 +834,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Wing.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Wing.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -854,7 +855,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Wing.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Wing.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -922,7 +923,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Rudder.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Rudder.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -943,7 +944,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Rudder.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Rudder.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -995,7 +996,7 @@
       </collision>
     </link>
 
-   <!--Joint for Left Aileron-->
+    <!--Joint for Left Aileron-->
     <joint name='left_aileron_joint' type = 'revolute'>
       <parent>left_wing</parent>
       <child>left_aileron</child>
@@ -1077,6 +1078,7 @@
         </limit>
       </axis>
     </joint>
+
     <static>0</static>
     <allow_auto_disable>1</allow_auto_disable>
   </model> 
