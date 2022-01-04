@@ -1,8 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
   <model name='subscale_model'>
-  <join
-  
     <link name='fuselage'>
     <!--Clean up in future-->
       <inertial>
@@ -348,9 +346,9 @@
             <threshold>1e+06</threshold>
           </bounce>
           <contact>
-            <collide_without_0contact>0</collide_without_contact>
+            <collide_without_contact>0</collide_without_contact>
             <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmaskyt>1</collide_bitmask>
+            <collide_bitmask>1</collide_bitmask>
             <ode>
               <soft_cfm>0</soft_cfm>
               <soft_erp>0.2</soft_erp>
@@ -1000,9 +998,6 @@
       <parent>left_wing</parent>
       <child>left_aileron</child>
       <pose>0.001717 0.004642 0 0 -0 0</pose> <!--TODO-->
-      <dynamics>
-        <friction>0.5</friction>
-      </friction>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
