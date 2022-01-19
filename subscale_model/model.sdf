@@ -1,7 +1,8 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name='Full_Subscale'>
-    <link name='link_0'>
+  <model name='subscale_model'>
+    <link name='fuselage'>
+    <!--Clean up in future-->
       <inertial>
         <mass>2</mass>
         <inertia>
@@ -23,7 +24,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage (1).stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage (1).stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -38,7 +39,7 @@
           </shader>
           <ambient>0.3 0.3 0.3 1</ambient>
           <diffuse>0.7 0.7 0.7 1</diffuse>
-          <specular>0.01 0.01 0.01 1</specular>
+          <specular>0.01 0.01 0.01 1</specular>.
           <emissive>0 0 0 1</emissive>
         </material>
         <transparency>0</transparency>
@@ -50,7 +51,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage (1).stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage (1).stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -118,7 +119,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage 1.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 1.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -139,7 +140,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage 1.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 1.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -190,7 +191,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_10'>
+    <link name='stabilizers'>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -207,7 +208,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Stabalizers.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Stabalizers.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -228,7 +229,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Stabalizers.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Stabalizers.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -296,7 +297,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage 2.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 2.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -317,7 +318,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Fuselage 2.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 2.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -355,7 +356,7 @@
               <kd>1</kd>
               <max_vel>0.01</max_vel>
               <min_depth>0</min_depth>
-            </ode>
+            </ode>0
             <bullet>
               <split_impulse>1</split_impulse>
               <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
@@ -368,7 +369,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_3'>
+    <link name='left_aileron'>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -385,7 +386,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Aileron.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Aileron.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -406,7 +407,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Aileron.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Aileron.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -457,7 +458,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_4'>
+    <link name='left_elevator'>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -474,7 +475,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Elevator.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Elevator.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -495,7 +496,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Elevator.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Elevator.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -546,7 +547,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_5'>
+    <link name='left_wing'>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -563,7 +564,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Wing.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Wing.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -584,7 +585,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Left Wing.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Wing.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -635,7 +636,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_6'>
+    <link name='right_aileron'>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -652,7 +653,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Aileron.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Aileron.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -673,16 +674,16 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Aileron.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Aileron.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
         <surface>
           <friction>
-            <ode>
+            <ode>0.
               <mu>1</mu>
               <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
+              <fdir1>0 0 0</fdir1>0
               <slip1>0</slip1>
               <slip2>0</slip2>
             </ode>
@@ -724,7 +725,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_7'>
+    <link name='right_elevator'>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -741,7 +742,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Elevator.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Elevator.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -762,7 +763,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Elevator.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Elevator.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -813,7 +814,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_8'>
+    <link name='right_wing'>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -830,7 +831,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Wing.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Wing.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -851,7 +852,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Right Wing.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Wing.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -902,7 +903,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_9'>
+    <link name='rudder'>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -919,7 +920,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Rudder.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Rudder.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -931,7 +932,7 @@
           </script>
           <shader type='pixel'/>
         </material>
-        <transparency>0</transparency>
+        <transparency>0</transparency>00
         <cast_shadows>1</cast_shadows>
       </visual>
       <collision name='collision'>
@@ -940,7 +941,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/Users/charles/Desktop/FCA/Gazebo/Stls/Rudder.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Rudder.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -991,7 +992,88 @@
         </surface>
       </collision>
     </link>
+
+    <!--Joint for Left Aileron-->
+    <joint name='left_aileron_joint' type = 'revolute'>
+      <parent>left_wing</parent>
+      <child>left_aileron</child>
+      <pose>0.001717 0.004642 0 0 -0 0</pose> <!--TODO-->
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.26</lower>
+          <upper>0.35</upper>
+          <velocity>1</velocity> <!--Max velocity/effort? Also is effort similar to torqe or-->
+          <effort>1</effort>
+        </limit>
+      </axis>
+    </joint>
+
+    <!--Joint for Right Aileron-->
+    <joint name='right_aileron_joint' type = 'revolute'>
+      <parent>right_wing</parent>
+      <child>right_aileron</child>
+      <pose>-0.000807 -0.000738 0 0 -0 0</pose> <!--TODO-->
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.26</lower>
+          <upper>0.35</upper>
+          <velocity>1</velocity>
+          <effort>1</effort>
+        </limit>
+      </axis>
+    </joint>
+
+    <!--Joint for Right Elevator-->
+    <joint name='right_elevator_joint' type = 'revolute'>
+      <parent>stabilizers</parent>
+      <child>right_elevator</child>
+      <pose>-0.005405 -0.001289 0 0 -0 0</pose> <!--TODO-->
+      <axis>00
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.26</lower>00
+          <upper>0.35</upper>
+          <velocity>1</velocity>
+          <effort>1</effort>
+        </limit>
+      </axis>
+    </joint>
+
+    <!--Joint for Right Elevator-->
+    <joint name='left_elevator_joint' type = 'revolute'>
+      <parent>stabilizers</parent>
+      <child>left_elevator</child>
+      <pose>-0.011106 0.004567 0 0 -0 0</pose> <!--TODO-where's the joint gonna be -->
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.26</lower>
+          <upper>0.35</upper>
+          <velocity>1</velocity>
+          <effort>78.177</effort>
+        </limit>
+      </axis>
+    </joint>
+
+    <!--Joint for Rudder-->
+    <joint name='rudder_joint' type = 'revolute'>
+      <parent>stabilizers</parent>
+      <child>rudder</child>
+      <pose>0.015142 -0.00431 0 0 -0 0</pose> <!--TODO-->
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.26</lower>
+          <upper>0.35</upper>
+          <velocity>1</velocity>
+          <effort>1</effort>
+        </limit>
+      </axis>
+    </joint>
+
     <static>0</static>
     <allow_auto_disable>1</allow_auto_disable>
-  </model>
+  </model> 
 </sdf>
