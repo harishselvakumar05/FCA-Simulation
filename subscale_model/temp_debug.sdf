@@ -179,7 +179,7 @@
         </surface>
       </collision>
     </link>
-        <joint name='right_aileron_joint' type = 'revolute'>
+        <joint name='right_aileron_joint' type = 'fixed'>
       <parent>right_wing</parent>
       <child>right_aileron</child>
       <pose>-0.000807 -0.000738 0 0 -0 0</pose> <!--TODO-->
