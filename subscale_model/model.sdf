@@ -4,7 +4,7 @@
     <link name='fuselage'>
     <!--Clean up in future-->
       <inertial>
-        <mass>2</mass>
+        <mass>1</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -13,10 +13,10 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0.034 43.64 -0.036 0 -0 0</pose>
       </inertial>
       <pose>0.010625 -0.006549 0 0 -0 0</pose>
-      <gravity>0</gravity>
+     
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
       <enable_wind>0</enable_wind>
@@ -102,95 +102,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_1'>
-      <inertial>
-        <mass>1</mass>
-        <inertia>
-          <ixx>0.166667</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.166667</iyy>
-          <iyz>0</iyz>
-          <izz>0.166667</izz>
-        </inertia>
-      </inertial>
-      <pose>-0.005356 0.001629 0 0 -0 0</pose>
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 1.stl</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <shader type='pixel'/>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-      <collision name='collision'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 1.stl</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
-      </collision>
-    </link>
+    
     <link name='stabilizers'>
       <inertial>
         <mass>1</mass>
@@ -202,6 +114,7 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
+        <pose>0 68.821 9.417 0 -0 0</pose>
       </inertial>
       <pose>-0.007465 -0.001724 0 0 -0 0</pose>
       <visual name='visual'>
@@ -280,95 +193,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_2'>
-      <inertial>
-        <mass>1</mass>
-        <inertia>
-          <ixx>0.166667</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.166667</iyy>
-          <iyz>0</iyz>
-          <izz>0.166667</izz>
-        </inertia>
-      </inertial>
-      <pose>0.014581 -0.002539 0 0 -0 0</pose>
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 2.stl</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <shader type='pixel'/>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-      <collision name='collision'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage 2.stl</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>0
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
-      </collision>
-    </link>
+    
     <link name='left_aileron'>
       <inertial>
         <mass>1</mass>
@@ -379,6 +204,7 @@
           <iyy>0.166667</iyy>
           <iyz>0</iyz>
           <izz>0.166667</izz>
+          <pose>-32.298 50.177 15.251 0 -0 0</pose>
         </inertia>
       </inertial>
       <pose>0.001717 0.004642 0 0 -0 0</pose>
@@ -469,6 +295,7 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
+        <pose>0 68.821 9.417 0 -0 0</pose>
       </inertial>
       <pose>-0.011106 0.004567 0 0 -0 0</pose>
       <visual name='visual'>
@@ -558,6 +385,7 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
+        <pose>-31.006 21.669 14.927  0 -0 0</pose>
       </inertial>
       <pose>-0.002431 0.000506 0 0 -0 0</pose>
       <visual name='visual'>
@@ -646,6 +474,7 @@
           <iyy>0.166667</iyy>
           <iyz>0</iyz>
           <izz>0.166667</izz>
+          <pose>32.298 50.177 15.251 0 -0 0</pose>
         </inertia>
       </inertial>
       <pose>-0.000807 -0.000738 0 0 -0 0</pose>
@@ -736,6 +565,7 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
+        <pose>0 68.821 9.417 0 -0 0</pose>
       </inertial>
       <pose>-0.005405 -0.001289 0 0 -0 0</pose>
       <visual name='visual'>
@@ -825,6 +655,7 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
+        <pose>31.006 21.669 14.927  0 -0 0</pose>
       </inertial>
       <pose>-0.009494 0.005806 0 0 -0 0</pose>
       <visual name='visual'>
@@ -992,14 +823,36 @@
         </surface>
       </collision>
     </link>
+    
+
+   
+
+
+    <joint name = 'body3' type = 'fixed'>
+    	<parent>fuselage</parent>
+    	<child>right_wing</child>
+    </joint>
+
+
+    <joint name = 'body4' type = 'fixed'>
+    	<parent>fuselage</parent>
+    	<child>left_wing</child>
+    </joint>
+
+
+    <joint name = 'body5' type = 'fixed'>
+    	<parent>fuselage</parent>
+    	<child>stabilizers</child>
+    </joint>
+
 
     <!--Joint for Left Aileron-->
     <joint name='left_aileron_joint' type = 'revolute'>
       <parent>left_wing</parent>
       <child>left_aileron</child>
-      <pose>0.001717 0.004642 0 0 -0 0</pose> <!--TODO-->
+      <pose>-50 31 14.8 0 0.052 0</pose> <!--TODO-->
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>1 0 0</xyz>
         <limit>
           <lower>-0.26</lower>
           <upper>0.35</upper>
@@ -1013,9 +866,9 @@
     <joint name='right_aileron_joint' type = 'revolute'>
       <parent>right_wing</parent>
       <child>right_aileron</child>
-      <pose>-0.000807 -0.000738 0 0 -0 0</pose> <!--TODO-->
+      <pose>50 31 14.8 0 -0.052 0</pose> <!--TODO-->
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>1 0 0</xyz>
         <limit>
           <lower>-0.26</lower>
           <upper>0.35</upper>
@@ -1029,9 +882,9 @@
     <joint name='right_elevator_joint' type = 'revolute'>
       <parent>stabilizers</parent>
       <child>right_elevator</child>
-      <pose>-0.005405 -0.001289 0 0 -0 0</pose> <!--TODO-->
+      <pose>20 68.7 8.2 0 -0 0</pose> <!--TODO-->
       <axis>00
-        <xyz>0 1 0</xyz>
+        <xyz>1 0 0</xyz>
         <limit>
           <lower>-0.26</lower>00
           <upper>0.35</upper>
@@ -1045,9 +898,9 @@
     <joint name='left_elevator_joint' type = 'revolute'>
       <parent>stabilizers</parent>
       <child>left_elevator</child>
-      <pose>-0.011106 0.004567 0 0 -0 0</pose> <!--TODO-where's the joint gonna be -->
+      <pose>-20 68.7 8.2 0 -0 0</pose> <!--TODO-where's the joint gonna be -->
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>1 0 0</xyz>
         <limit>
           <lower>-0.26</lower>
           <upper>0.35</upper>
@@ -1061,7 +914,7 @@
     <joint name='rudder_joint' type = 'revolute'>
       <parent>stabilizers</parent>
       <child>rudder</child>
-      <pose>0.015142 -0.00431 0 0 -0 0</pose> <!--TODO-->
+      <pose>0 69.1 19.3 0 -0 0</pose> <!--TODO-->
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
