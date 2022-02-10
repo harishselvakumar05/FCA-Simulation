@@ -4,7 +4,7 @@
     <link name='fuselage'>
     <!--Clean up in future-->
       <inertial>
-        <mass>1</mass>
+        <mass>115</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -105,7 +105,7 @@
     
     <link name='stabilizers'>
       <inertial>
-        <mass>1</mass>
+        <mass>6</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -114,7 +114,7 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
-        <pose>0 68.821 9.417 0 -0 0</pose>
+        <pose>0 65.213 9.393 0 -0 0</pose>
       </inertial>
       <pose>-0.007465 -0.001724 0 0 -0 0</pose>
       <visual name='visual'>
@@ -196,7 +196,7 @@
     
     <link name='left_aileron'>
       <inertial>
-        <mass>1</mass>
+        <mass>4</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -204,8 +204,9 @@
           <iyy>0.166667</iyy>
           <iyz>0</iyz>
           <izz>0.166667</izz>
-          <pose>-32.298 50.177 15.251 0 -0 0</pose>
+          
         </inertia>
+        <pose>-50.177 32.298  15.251 0 -0 0</pose>
       </inertial>
       <pose>0.001717 0.004642 0 0 -0 0</pose>
       <visual name='visual'>
@@ -286,7 +287,7 @@
     </link>
     <link name='left_elevator'>
       <inertial>
-        <mass>1</mass>
+        <mass>2</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -295,7 +296,7 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
-        <pose>0 68.821 9.417 0 -0 0</pose>
+        <pose>-10.7 70.77 8.213 0 -0 0</pose>
       </inertial>
       <pose>-0.011106 0.004567 0 0 -0 0</pose>
       <visual name='visual'>
@@ -376,7 +377,7 @@
     </link>
     <link name='left_wing'>
       <inertial>
-        <mass>1</mass>
+        <mass>91</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -466,7 +467,7 @@
     </link>
     <link name='right_aileron'>
       <inertial>
-        <mass>1</mass>
+        <mass>4</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -474,8 +475,9 @@
           <iyy>0.166667</iyy>
           <iyz>0</iyz>
           <izz>0.166667</izz>
-          <pose>32.298 50.177 15.251 0 -0 0</pose>
+          
         </inertia>
+        <pose>50.177 32.298  15.251 0 -0 0</pose>
       </inertial>
       <pose>-0.000807 -0.000738 0 0 -0 0</pose>
       <visual name='visual'>
@@ -556,7 +558,7 @@
     </link>
     <link name='right_elevator'>
       <inertial>
-        <mass>1</mass>
+        <mass>2</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -565,7 +567,7 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
-        <pose>0 68.821 9.417 0 -0 0</pose>
+        <pose>10.7 70.77 8.213 0 -0 0</pose>
       </inertial>
       <pose>-0.005405 -0.001289 0 0 -0 0</pose>
       <visual name='visual'>
@@ -646,7 +648,7 @@
     </link>
     <link name='right_wing'>
       <inertial>
-        <mass>1</mass>
+        <mass>91</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -736,7 +738,7 @@
     </link>
     <link name='rudder'>
       <inertial>
-        <mass>1</mass>
+        <mass>2</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -745,6 +747,7 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
+        <pose>0 71.795 11.808 0 -0 0</pose>
       </inertial>
       <pose>0.015142 -0.00431 0 0 -0 0</pose>
       <visual name='visual'>
