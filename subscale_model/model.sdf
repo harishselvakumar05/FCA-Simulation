@@ -13,7 +13,7 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
-        <pose>0.034 43.64 -0.036 0 -0 0</pose>
+        <pose>0.071 24.701 4.144 0 -0 0</pose>
       </inertial>
       <pose>0.010625 -0.006549 0 0 -0 0</pose>
      
@@ -646,6 +646,25 @@
         </surface>
       </collision>
     </link>
+
+  <link name='motor'>
+    <inertial>
+      <mass>0.035</mass>
+      <inertia>
+        <ixx>0.166667</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.166667</iyy>
+        <iyz>0</iyz>
+        <izz>0.166667</izz>
+      </inertia>
+      <pose>0 0 4.144 0 -0 0</pose>
+    </inertial>
+    <pose>0.010625 -0.006549 0 0 -0 0</pose>
+  </link>
+
+
+    
     <link name='right_wing'>
       <inertial>
         <mass>0.091</mass>
