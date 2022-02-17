@@ -4,7 +4,7 @@
     <link name='fuselage'>
     <!--Clean up in future-->
       <inertial>
-        <mass>115</mass>
+        <mass>0.115</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -105,7 +105,7 @@
     
     <link name='stabilizers'>
       <inertial>
-        <mass>6</mass>
+        <mass>0.006</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -196,7 +196,7 @@
     
     <link name='left_aileron'>
       <inertial>
-        <mass>4</mass>
+        <mass>0.004</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -287,7 +287,7 @@
     </link>
     <link name='left_elevator'>
       <inertial>
-        <mass>2</mass>
+        <mass>0.002</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -377,7 +377,7 @@
     </link>
     <link name='left_wing'>
       <inertial>
-        <mass>91</mass>
+        <mass>0.091</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -467,7 +467,7 @@
     </link>
     <link name='right_aileron'>
       <inertial>
-        <mass>4</mass>
+        <mass>0.004</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -558,7 +558,7 @@
     </link>
     <link name='right_elevator'>
       <inertial>
-        <mass>2</mass>
+        <mass>0.002</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -648,7 +648,7 @@
     </link>
     <link name='right_wing'>
       <inertial>
-        <mass>91</mass>
+        <mass>0.091</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -738,7 +738,7 @@
     </link>
     <link name='rudder'>
       <inertial>
-        <mass>2</mass>
+        <mass>0.002</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -912,6 +912,8 @@
         </limit>
       </axis>
     </joint>
+    
+ 
 
     <!--Joint for Rudder-->
     <joint name='rudder_joint' type = 'revolute'>
