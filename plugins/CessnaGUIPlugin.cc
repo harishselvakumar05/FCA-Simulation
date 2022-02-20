@@ -1,50 +1,30 @@
-/*
- * Copyright (C) 2015 Open Source Robotics Foundation
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
-*/
 #include <algorithm>
 
 #include <gazebo/gui/GuiPlugin.hh>
 #include <gazebo/gui/Actions.hh>
-#include "CessnaGUIPlugin.hh"
+#include "SubscaleGUIPlugin.hh"
 
 using namespace gazebo;
 
-// Register this plugin with the simulator
-GZ_REGISTER_GUI_PLUGIN(CessnaGUIPlugin)
+GZ_REGISTER_GUI_PLUGIN(SubscaleGUIPlugin)
 
-/////////////////////////////////////////////////
-CessnaGUIPlugin::CessnaGUIPlugin()
+
+SubscaleGUIPlugin::SubscaleGUIPlugin()
   : GUIPlugin()
 {
-  // This is needed to avoid the creation of a black widget with default size.
   this->move(-1, -1);
   this->resize(1, 1);
-
-  // Set the increment or decrement in angle per key pressed.
   this->angleStep.Degree(1.0);
 
-  // Initialize transport.
+
   this->gzNode = transport::NodePtr(new transport::Node());
   this->gzNode->Init();
   this->controlPub =
-    this->gzNode->Advertise<msgs::Cessna>("~/cessna_c172/control");
-  this->stateSub = this->gzNode->Subscribe<msgs::Cessna>(
-    "~/cessna_c172/state", &CessnaGUIPlugin::OnState, this);
+    this->gzNode->Advertise<msgs::Subscale>("~/subscale/control");
+  this->stateSub = this->gzNode->Subscribe<msgs::Subscale>(
+    "~/subscale/state", &SubscaleGUIPlugin::OnState, this);
 
-  // Connect hotkeys.
+
   QShortcut *increaseThrust = new QShortcut(QKeySequence("w"), this);
   QObject::connect(increaseThrust, SIGNAL(activated()), this,
       SLOT(OnIncreaseThrust()));
@@ -92,22 +72,20 @@ CessnaGUIPlugin::CessnaGUIPlugin()
       SLOT(OnPresetLanding()));
 }
 
-/////////////////////////////////////////////////
-CessnaGUIPlugin::~CessnaGUIPlugin()
+
+SubscaleGUIPlugin::~SubscaleGUIPlugin()
 {
 }
 
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnState(ConstCessnaPtr &_msg)
+
+void SubscaleGUIPlugin::OnState(ConstSubscalePtr &_msg)
 {
   std::lock_guard<std::mutex> lock(this->mutex);
-
-  // Refresh the state.
   this->state = *_msg;
 }
 
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnIncreaseThrust()
+
+void SubscaleGUIPlugin::OnIncreaseThrust()
 {
   float thrust;
   {
@@ -115,14 +93,13 @@ void CessnaGUIPlugin::OnIncreaseThrust()
     thrust = this->state.cmd_propeller_speed();
   }
 
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   thrust = std::min(thrust + 0.1f, 1.0f);
   msg.set_cmd_propeller_speed(thrust);
   this->controlPub->Publish(msg);
 }
 
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnDecreaseThrust()
+void SubscaleGUIPlugin::OnDecreaseThrust()
 {
   float thrust;
   {
@@ -130,16 +107,13 @@ void CessnaGUIPlugin::OnDecreaseThrust()
     thrust = this->state.cmd_propeller_speed();
   }
 
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   thrust = std::max(thrust - 0.1f, 0.0f);
   msg.set_cmd_propeller_speed(thrust);
   this->controlPub->Publish(msg);
 }
 
-
-
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnIncreaseRoll()
+void SubscaleGUIPlugin::OnIncreaseRoll()
 {
   ignition::math::Angle aileron;
   {
@@ -147,7 +121,7 @@ void CessnaGUIPlugin::OnIncreaseRoll()
     aileron.Radian(this->state.cmd_left_aileron());
   }
 
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   if (aileron.Degree() < 30)
   {
     aileron += this->angleStep;
@@ -157,8 +131,7 @@ void CessnaGUIPlugin::OnIncreaseRoll()
   }
 }
 
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnDecreaseRoll()
+void SubscaleGUIPlugin::OnDecreaseRoll()
 {
   ignition::math::Angle aileron;
   {
@@ -166,7 +139,7 @@ void CessnaGUIPlugin::OnDecreaseRoll()
     aileron.Radian(this->state.cmd_left_aileron());
   }
 
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   if (aileron.Degree() > -30)
   {
     aileron -= this->angleStep;
@@ -176,8 +149,7 @@ void CessnaGUIPlugin::OnDecreaseRoll()
   }
 }
 
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnIncreaseElevators()
+void SubscaleGUIPlugin::OnIncreaseElevators()
 {
   ignition::math::Angle elevators;
   {
@@ -185,7 +157,7 @@ void CessnaGUIPlugin::OnIncreaseElevators()
     elevators.Radian(this->state.cmd_elevators());
   }
 
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   if (elevators.Degree() < 30)
   {
     elevators += this->angleStep;
@@ -194,8 +166,7 @@ void CessnaGUIPlugin::OnIncreaseElevators()
   }
 }
 
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnDecreaseElevators()
+void SubscaleGUIPlugin::OnDecreaseElevators()
 {
   ignition::math::Angle elevators;
   {
@@ -203,7 +174,7 @@ void CessnaGUIPlugin::OnDecreaseElevators()
     elevators.Radian(this->state.cmd_elevators());
   }
 
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   if (elevators.Degree() > -30)
   {
     elevators -= this->angleStep;
@@ -212,8 +183,7 @@ void CessnaGUIPlugin::OnDecreaseElevators()
   }
 }
 
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnIncreaseRudder()
+void SubscaleGUIPlugin::OnIncreaseRudder()
 {
   ignition::math::Angle rudder;
   {
@@ -221,7 +191,7 @@ void CessnaGUIPlugin::OnIncreaseRudder()
     rudder.Radian(this->state.cmd_rudder());
   }
 
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   if (rudder.Degree() < 30)
   {
     rudder += this->angleStep;
@@ -230,8 +200,8 @@ void CessnaGUIPlugin::OnIncreaseRudder()
   }
 }
 
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnDecreaseRudder()
+
+void SubscaleGUIPlugin::OnDecreaseRudder()
 {
   ignition::math::Angle rudder;
   {
@@ -239,7 +209,7 @@ void CessnaGUIPlugin::OnDecreaseRudder()
     rudder.Radian(this->state.cmd_rudder());
   }
 
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   if (rudder.Degree() > -30)
   {
     rudder -= this->angleStep;
@@ -248,10 +218,9 @@ void CessnaGUIPlugin::OnDecreaseRudder()
   }
 }
 
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnPresetTakeOff()
+void SubscaleGUIPlugin::OnPresetTakeOff()
 {
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   msg.set_cmd_propeller_speed(0.8);
   msg.set_cmd_left_aileron(-0.017);
   msg.set_cmd_right_aileron(0.017);
@@ -260,10 +229,10 @@ void CessnaGUIPlugin::OnPresetTakeOff()
   this->controlPub->Publish(msg);
 }
 
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnPresetCruise()
+
+void SubscaleGUIPlugin::OnPresetCruise()
 {
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   msg.set_cmd_propeller_speed(0.6);
   msg.set_cmd_left_aileron(0);
   msg.set_cmd_right_aileron(0);
@@ -272,10 +241,10 @@ void CessnaGUIPlugin::OnPresetCruise()
   this->controlPub->Publish(msg);
 }
 
-/////////////////////////////////////////////////
-void CessnaGUIPlugin::OnPresetLanding()
+
+void SubscaleGUIPlugin::OnPresetLanding()
 {
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   msg.set_cmd_propeller_speed(0.3);
   msg.set_cmd_left_aileron(0);
   msg.set_cmd_right_aileron(0);
