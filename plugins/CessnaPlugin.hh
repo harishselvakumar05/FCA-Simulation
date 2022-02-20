@@ -53,7 +53,6 @@ namespace gazebo
 
     private: void Update(const common::UpdateInfo &_info);
 
-    private: void OnControl(ConstSubscalePtr &_msg);
 
     private: void UpdatePIDs(double _dt);
 
