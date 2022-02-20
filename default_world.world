@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.4">
-  <world name="default_world">
+  <world name="subscale">
     <gui>
       <plugin name="keyboard" filename="libSubscaleGUIPlugin.so"/>
       <camera name="user_camera">
