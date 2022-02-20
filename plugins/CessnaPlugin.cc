@@ -1,20 +1,3 @@
-/* Currently building off of cessna plugin to get a head start, planning to migrate everything to custom plugin once this is working 
- * Harish Selvakumar
- * Modified from 2015 Open Source Robotics Foundation
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
-*/
 
 #include <functional>
 #include <string>
@@ -25,14 +8,14 @@
 #include <gazebo/msgs/msgs.hh>
 #include <gazebo/physics/physics.hh>
 #include <gazebo/transport/transport.hh>
-#include "plugins/CessnaPlugin.hh"
+#include "plugins/SubscalePlugin.hh"
 
 using namespace gazebo;
 
-GZ_REGISTER_MODEL_PLUGIN(CessnaPlugin)
+GZ_REGISTER_MODEL_PLUGIN(SubscalePlugin)
 
 ////////////////////////////////////////////////////////////////////////////////
-CessnaPlugin::CessnaPlugin()
+SubscalePlugin::SubscalePlugin()
 {
   this->cmds.fill(0.0f);
 
@@ -48,13 +31,13 @@ CessnaPlugin::CessnaPlugin()
 }
 
 /////////////////////////////////////////////////
-CessnaPlugin::~CessnaPlugin()
+SubscalePlugin::~SubscalePlugin()
 {
   this->updateConnection.reset();
 }
 
 /////////////////////////////////////////////////
-bool CessnaPlugin::FindJoint(const std::string &_sdfParam, sdf::ElementPtr _sdf,
+bool SubscalePlugin::FindJoint(const std::string &_sdfParam, sdf::ElementPtr _sdf,
     physics::JointPtr &_joint)
 {
   // Read the required plugin parameters.
@@ -76,10 +59,10 @@ bool CessnaPlugin::FindJoint(const std::string &_sdfParam, sdf::ElementPtr _sdf,
 }
 
 /////////////////////////////////////////////////
-void CessnaPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
+void SubscalePlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
 {
-  GZ_ASSERT(_model, "CessnaPlugin _model pointer is NULL");
-  GZ_ASSERT(_sdf, "CessnaPlugin _sdf pointer is NULL");
+  GZ_ASSERT(_model, "SubscalePlugin _model pointer is NULL");
+  GZ_ASSERT(_sdf, "SubscalePlugin _sdf pointer is NULL");
   this->model = _model;
 
   // Read the required parameter for the propeller max RPMs.
@@ -139,23 +122,23 @@ void CessnaPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   // Listen to the update event. This event is broadcast every simulation
   // iteration.
   this->updateConnection = event::Events::ConnectWorldUpdateBegin(
-    std::bind(&CessnaPlugin::Update, this, std::placeholders::_1));
+    std::bind(&SubscalePlugin::Update, this, std::placeholders::_1));
 
   // Initialize transport.
   this->node = transport::NodePtr(new transport::Node());
   this->node->Init();
   std::string prefix = "~/" + this->model->GetName() + "/";
-  this->statePub = this->node->Advertise<msgs::Cessna>(prefix + "state");
+  this->statePub = this->node->Advertise<msgs::Subscale>(prefix + "state");
   this->controlSub = this->node->Subscribe(prefix + "control",
-    &CessnaPlugin::OnControl, this);
+    &SubscalePlugin::OnControl, this);
 
-  gzlog << "Cessna ready to fly. The force will be with you" << std::endl;
+  gzlog << "Subscale ready to fly. The force will be with you" << std::endl;
 }
 
 /////////////////////////////////////////////////
-void CessnaPlugin::Update(const common::UpdateInfo &/*_info*/)
+void SubscalePlugin::Update(const common::UpdateInfo &/*_info*/)
 {
-  IGN_PROFILE("CessnaPlugin::OnUpdate");
+  IGN_PROFILE("SubscalePlugin::OnUpdate");
   std::lock_guard<std::mutex> lock(this->mutex);
 
   gazebo::common::Time curTime = this->model->GetWorld()->SimTime();
@@ -175,7 +158,7 @@ void CessnaPlugin::Update(const common::UpdateInfo &/*_info*/)
 }
 
 /////////////////////////////////////////////////
-void CessnaPlugin::OnControl(ConstCessnaPtr &_msg)
+void SubscalePlugin::OnControl(ConstSubscalePtr &_msg)
 {
   std::lock_guard<std::mutex> lock(this->mutex);
 
@@ -197,7 +180,7 @@ void CessnaPlugin::OnControl(ConstCessnaPtr &_msg)
 }
 
 /////////////////////////////////////////////////
-void CessnaPlugin::UpdatePIDs(double _dt)
+void SubscalePlugin::UpdatePIDs(double _dt)
 {
   // Velocity PID for the propeller.
   double vel = this->joints[kPropeller]->GetVelocity(0);
@@ -218,7 +201,7 @@ void CessnaPlugin::UpdatePIDs(double _dt)
 }
 
 /////////////////////////////////////////////////
-void CessnaPlugin::PublishState()
+void SubscalePlugin::PublishState()
 {
   // Read the current state.
   double propellerRpms = this->joints[kPropeller]->GetVelocity(0)
@@ -229,7 +212,7 @@ void CessnaPlugin::PublishState()
   float elevators = this->joints[kElevators]->Position(0);
   float rudder = this->joints[kRudder]->Position(0);
 
-  msgs::Cessna msg;
+  msgs::Subscale msg;
   // Set the observed state.
   msg.set_propeller_speed(propellerSpeed);
   msg.set_left_aileron(leftAileron);
