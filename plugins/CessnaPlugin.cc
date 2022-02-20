@@ -128,7 +128,6 @@ void SubscalePlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   this->node = transport::NodePtr(new transport::Node());
   this->node->Init();
   std::string prefix = "~/" + this->model->GetName() + "/";
-  this->statePub = this->node->Advertise<msgs::Subscale>(prefix + "state");
   this->controlSub = this->node->Subscribe(prefix + "control",
     &SubscalePlugin::OnControl, this);
 
@@ -158,26 +157,6 @@ void SubscalePlugin::Update(const common::UpdateInfo &/*_info*/)
 }
 
 /////////////////////////////////////////////////
-void SubscalePlugin::OnControl(ConstSubscalePtr &_msg)
-{
-  std::lock_guard<std::mutex> lock(this->mutex);
-
-  if (_msg->has_cmd_propeller_speed() &&
-      std::abs(_msg->cmd_propeller_speed()) <= 1)
-  {
-    this->cmds[kPropeller] = _msg->cmd_propeller_speed();
-  }
-  if (_msg->has_cmd_left_aileron())
-    this->cmds[kLeftAileron] = _msg->cmd_left_aileron();
-
-  if (_msg->has_cmd_right_aileron())
-    this->cmds[kRightAileron] = _msg->cmd_right_aileron();
-
-  if (_msg->has_cmd_elevators())
-    this->cmds[kElevators] = _msg->cmd_elevators();
-  if (_msg->has_cmd_rudder())
-    this->cmds[kRudder] = _msg->cmd_rudder();
-}
 
 /////////////////////////////////////////////////
 void SubscalePlugin::UpdatePIDs(double _dt)
@@ -212,20 +191,5 @@ void SubscalePlugin::PublishState()
   float elevators = this->joints[kElevators]->Position(0);
   float rudder = this->joints[kRudder]->Position(0);
 
-  msgs::Subscale msg;
-  // Set the observed state.
-  msg.set_propeller_speed(propellerSpeed);
-  msg.set_left_aileron(leftAileron);
-  msg.set_right_aileron(rightAileron);
-  msg.set_elevators(elevators);
-  msg.set_rudder(rudder);
 
-  // Set the target state.
-  msg.set_cmd_propeller_speed(this->cmds[kPropeller]);
-  msg.set_cmd_left_aileron(this->cmds[kLeftAileron]);
-  msg.set_cmd_right_aileron(this->cmds[kRightAileron]);
-  msg.set_cmd_elevators(this->cmds[kElevators]);
-  msg.set_cmd_rudder(this->cmds[kRudder]);
-
-  this->statePub->Publish(msg);
 }
