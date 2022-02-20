@@ -2,7 +2,7 @@
 <sdf version="1.4">
   <world name="default_world">
     <gui>
-      <plugin name="keyboard" filename="libCessnaGUIPlugin.so"/>
+      <plugin name="keyboard" filename="libSubscaleGUIPlugin.so"/>
       <camera name="user_camera">
         <pose>-16 0 4 0 0 0</pose>
       </camera>
@@ -67,10 +67,18 @@
 
     <model name="subscale_model">
       <include>`
-        <uri>model://cessna</uri>
+        <uri>model://subscale_model</uri>
       </include>
-      
-    
+
+                <!-- Plugins for controlling the thrust and control surfaces -->
+                <plugin name="control" filename="libSubscalePlugin.so">
+                  <propeller_max_rpm>2500</propeller_max_rpm>
+                  <left_aileron>subscale_model::left_aileron_joint</left_aileron>
+                  <right_aileron>subscale_model::right_aileron_joint</right_aileron>
+                  <elevators>subscale_model::left_elevator_joint</elevators>
+                  <rudder>subscale_model::rudder_joint</rudder>    
+                </plugin>
+
     </model>
   </world>
 </sdf>
