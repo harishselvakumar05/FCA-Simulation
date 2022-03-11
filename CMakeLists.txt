@@ -1,3 +1,4 @@
+
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
 if(POLICY CMP0100)
@@ -18,12 +19,12 @@ link_directories(${GAZEBO_LIBRARY_DIRS})
 
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 
-add_library(CessnaGUIPlugin SHARED ${headers_MOC} CessnaGUIPlugin.cc)
-target_link_libraries(CessnaGUIPlugin ${GAZEBO_LIBRARIES} 
+
+add_library(SubscalePlugin_msgs ${PROTO_SRCS})
+target_link_libraries(SubscalePlugin_msgs ${PROTOBUF_LIBRARY})
+
+add_library(SubscalePlugin SHARED ${headers_MOC} SubscalePlugin.cc)
+target_link_libraries(SubscalePlugin ${GAZEBO_LIBRARIES} 
 	${Qt5Core_LIBRARIES}
     	${Qt5Widgets_LIBRARIES}
     	${PROTOBUF_LIBRARIES})
-
-
-
-
