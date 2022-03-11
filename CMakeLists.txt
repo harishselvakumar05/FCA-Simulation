@@ -6,9 +6,6 @@ if(POLICY CMP0100)
 endif()
 
 set (CMAKE_AUTOMOC ON)
-
-find_package (Qt5Widgets REQUIRED)
-find_package (Qt5Core REQUIRED)
 find_package(Protobuf REQUIRED)
 find_package(gazebo REQUIRED)
 
@@ -25,6 +22,4 @@ target_link_libraries(SubscalePlugin_msgs ${PROTOBUF_LIBRARY})
 
 add_library(SubscalePlugin SHARED ${headers_MOC} SubscalePlugin.cc)
 target_link_libraries(SubscalePlugin ${GAZEBO_LIBRARIES} 
-	${Qt5Core_LIBRARIES}
-    	${Qt5Widgets_LIBRARIES}
     	${PROTOBUF_LIBRARIES})
