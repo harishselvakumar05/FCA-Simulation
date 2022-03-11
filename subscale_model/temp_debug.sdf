@@ -1,3 +1,9 @@
+  #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <iomanip> 
+
+  
   const char *path = "/home/harish/file.txt";
   ofstream myfile(path);
   myfile << fixed << setprecision(5) << 10.0f << endl;
