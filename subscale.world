@@ -91,7 +91,7 @@
                   <air_density>1.2041</air_density>
                   <forward>1 0 0</forward>
                   <upward>0 0 1</upward>
-                  <link_name>subscale_model::fuselage</link_name>
+                  <link_name>subscale_model::left_wing</link_name>
                   <control_joint_name>subscale_model::left_aileron_joint</control_joint_name>
                   <control_joint_rad_to_cl>-2.0</control_joint_rad_to_cl>
                 </plugin>
@@ -110,7 +110,7 @@
                   <air_density>1.2041</air_density>
                   <forward>1 0 0</forward>
                   <upward>0 0 1</upward>
-                  <link_name>subscale_model::fuselage</link_name>
+                  <link_name>subscale_model::right_wing</link_name>
                   <control_joint_name>subscale_model::right_aileron_joint</control_joint_name>
                   <control_joint_rad_to_cl>-2.0</control_joint_rad_to_cl>
                 </plugin>
@@ -129,7 +129,7 @@
                   <air_density>1.2041</air_density>
                   <forward>1 0 0</forward>
                   <upward>0 0 1</upward>
-                  <link_name>subscale_model::fuselage</link_name>
+                  <link_name>subscale_model::stabilizers</link_name>
                   <control_joint_name>subscale_model::left_elevator_joint</control_joint_name>
                   <control_joint_rad_to_cl>-4.0</control_joint_rad_to_cl>
                 </plugin>
