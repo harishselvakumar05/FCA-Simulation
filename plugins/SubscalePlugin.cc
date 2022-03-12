@@ -77,11 +77,23 @@ void SubscalePlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   this->node = transport::NodePtr(new transport::Node());
   this->node->Init();
   std::string prefix = "~/" + this->model->GetName() + "/";
-
-
-  gzlog << "Subscale ready to fly. The force will be with you" << std::endl;
+  this->statePub = this->node->Advertise<msgs::Cessna>(prefix + "state");
+  this->controlSub = this->node->Subscribe(prefix + "control",
+    &CessnaPlugin::OnControl, this);
 }
+void CessnaPlugin::OnControl(ConstCessnaPtr &_msg)
+{
+  std::lock_guard<std::mutex> lock(this->mutex);
 
+  if (_msg->has_cmd_left_aileron())
+    this->cmds[kLeftAileron] = _msg->cmd_left_aileron();
+  if (_msg->has_cmd_right_aileron())
+    this->cmds[kRightAileron] = _msg->cmd_right_aileron();
+  if (_msg->has_cmd_elevators())
+    this->cmds[kElevators] = _msg->cmd_elevators();
+  if (_msg->has_cmd_rudder())
+    this->cmds[kRudder] = _msg->cmd_rudder();
+}
 void SubscalePlugin::Update(const common::UpdateInfo &/*_info*/)
 {
   IGN_PROFILE("SubscalePlugin::OnUpdate");
@@ -109,5 +121,26 @@ void SubscalePlugin::PublishState()
   float rightAileron = this->joints[kRightAileron]->Position(0);
   float elevators = this->joints[kElevators]->Position(0);
   float rudder = this->joints[kRudder]->Position(0);
+  
+    msgs::Cessna msg;
+  // Set the observed state.
+  msg.set_propeller_speed(propellerSpeed);
+  msg.set_left_aileron(leftAileron);
+  msg.set_left_flap(leftFlap);
+  msg.set_right_aileron(rightAileron);
+  msg.set_right_flap(rightFlap);
+  msg.set_elevators(elevators);
+  msg.set_rudder(rudder);
+
+  // Set the target state.
+  msg.set_cmd_propeller_speed(this->cmds[kPropeller]);
+  msg.set_cmd_left_aileron(this->cmds[kLeftAileron]);
+  msg.set_cmd_left_flap(this->cmds[kLeftFlap]);
+  msg.set_cmd_right_aileron(this->cmds[kRightAileron]);
+  msg.set_cmd_right_flap(this->cmds[kRightFlap]);
+  msg.set_cmd_elevators(this->cmds[kElevators]);
+  msg.set_cmd_rudder(this->cmds[kRudder]);
+
+  this->statePub->Publish(msg);
 
 }
