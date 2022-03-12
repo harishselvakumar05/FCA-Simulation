@@ -11,18 +11,6 @@
 
 namespace gazebo
 {
-  /// Keyboard controls:
-  /// w         Increase thrust (+10 %)
-  /// s         Decrease thrust (-10 %)
-  /// d         Increase rudder angle (+1 degree)
-  /// a         Decrease rudder angle (-1 degree)
-  /// Left-Key  Left roll (+1 degree)
-  /// Right-Key Right roll (+1 degree)
-  /// Up-Key    Pitch down (+1 degree)
-  /// Down-Key  Pitch up (+1 degree)
-  /// 1         Preset for take-off
-  /// 2         Preset for cruise
-  /// 3         Preset for landing
   class GZ_PLUGIN_VISIBLE SubscaleGUIPlugin : public GUIPlugin
   {
     Q_OBJECT
