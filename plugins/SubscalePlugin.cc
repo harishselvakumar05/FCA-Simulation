@@ -122,7 +122,7 @@ void SubscalePlugin::PublishState()
   float elevators = this->joints[kElevators]->Position(0);
   float rudder = this->joints[kRudder]->Position(0);
   
-    msgs::Cessna msg;
+    msgs::Subscale msg;
   // Set the observed state.
   msg.set_propeller_speed(propellerSpeed);
   msg.set_left_aileron(leftAileron);
