@@ -90,7 +90,7 @@ void SubscaleGUIPlugin::OnIncreaseThrust()
   float thrust;
   {
     std::lock_guard<std::mutex> lock(this->mutex);
-    thrust = this->state.cmd_propeller_speed();
+    thrust = 10;
   }
 
   msgs::Subscale msg;
