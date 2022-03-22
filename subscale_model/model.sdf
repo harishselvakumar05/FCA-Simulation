@@ -375,7 +375,7 @@
         </surface>
       </collision>
     </link>
-    <link name='left_wing'>
+    <link name='left_wing'>      
       <inertial>
         <mass>0.091</mass>
         <inertia>
@@ -876,9 +876,9 @@
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-0.26</lower>
-          <upper>0.35</upper>
-          <velocity>1</velocity> <!--Max velocity/effort? Also is effort similar to torqe or-->
+          <lower>-0.261667</lower>
+          <upper>0.349066</upper>
+          <velocity>0.61</velocity> <!--Max velocity/effort? Also is effort similar to torqe or-->
           <effort>1</effort>
         </limit>
       </axis>
@@ -892,9 +892,9 @@
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-0.26</lower>
-          <upper>0.35</upper>
-          <velocity>1</velocity>
+          <lower>-0.261667</lower>
+          <upper>0.349066</upper>
+          <velocity>0.61</velocity>
           <effort>1</effort>
         </limit>
       </axis>
@@ -908,9 +908,9 @@
       <axis>00
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-0.26</lower>00
-          <upper>0.35</upper>
-          <velocity>1</velocity>
+          <lower>-0.261667</lower>00
+          <upper>0.349066</upper>
+          <velocity>0.61</velocity>
           <effort>1</effort>
         </limit>
       </axis>
@@ -924,10 +924,10 @@
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-0.26</lower>
-          <upper>0.35</upper>
-          <velocity>1</velocity>
-          <effort>78.177</effort>
+          <lower>-0.261667</lower>
+          <upper>0.349066</upper>
+          <velocity>0.61</velocity>
+          <effort>1</effort>
         </limit>
       </axis>
     </joint>
@@ -942,9 +942,9 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>-0.26</lower>
-          <upper>0.35</upper>
-          <velocity>1</velocity>
+          <lower>-0.35</lower>
+          <upper>0.349066</upper>
+          <velocity>0.61</velocity>
           <effort>1</effort>
         </limit>
       </axis>
