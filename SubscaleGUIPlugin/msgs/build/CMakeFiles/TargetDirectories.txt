@@ -1,3 +1,0 @@
-/home/harish/SubscaleGUIPlugin/msgs/build/CMakeFiles/rebuild_cache.dir
-/home/harish/SubscaleGUIPlugin/msgs/build/CMakeFiles/edit_cache.dir
-/home/harish/SubscaleGUIPlugin/msgs/build/CMakeFiles/SubscaleGUIPlugin_msgs.dir

@@ -1,2 +1,0 @@
-# Hashes of file build rules.
-8f96133e123d3b664c24f34153a5630a subscale.pb.h
