@@ -2,15 +2,17 @@
 <sdf version="1.4">
   <world name="subscale">
     <gui>
-     <plugin name="keyboard" filename="libSubscaleGUIPlugin.so"/>
+       <plugin name="keyboard" filename="libSubscaleGUIPlugin.so"/>
       <camera name="user_camera">
-        <pose>-16 0 4 0 0 0</pose>
+        <pose> -100 0 20 0 0 0</pose>
       </camera>
     </gui>
     <include>
       <uri>model://sun</uri>
-    </include>
-    <model name="ground_plane">
+    </include>  
+    
+
+      <model name="ground_plane">
       <static>true</static>
       <link name="link">
         <collision name="collision">
@@ -20,7 +22,7 @@
               <size>5000 5000</size>
             </plane>
           </geometry>
-          <pose>0 0 -3 0 0 0</pose>
+           <pose>0 0 -3 0 0 0</pose>
           <surface>
             <friction>
               <ode>
@@ -31,7 +33,7 @@
           </surface>
         </collision>
         <visual name="runway">
-          <pose>700 0 -2.3 0 0 0</pose>
+          <pose>700 0 0.1 0 0 0</pose>
           <cast_shadows>false</cast_shadows>
           <geometry>
             <plane>
@@ -46,8 +48,9 @@
             </script>
           </material>
         </visual>
+
         <visual name="grass">
-          <pose>0 0 -2.3 0 0 0</pose>
+          <pose>0 0 -0.1 0 0 0</pose>
           <cast_shadows>false</cast_shadows>
           <geometry>
             <plane>
@@ -62,15 +65,18 @@
             </script>
           </material>
         </visual>
+
       </link>
     </model>
+
 
     <model name="subscale_model">
       <include>`
         <uri>model://subscale_model</uri>
       </include>
-                <!-- Plugins for controlling the thrust and control surfaces -->
-                <plugin name="control" filename="libSubscalePlugin.so">
+      
+    
+                 <plugin name="control" filename="libSubscalePlugin.so">
                   <left_aileron>subscale_model::left_aileron_joint</left_aileron>
                   <right_aileron>subscale_model::right_aileron_joint</right_aileron>
                   <left_elevator>subscale_model::left_elevator_joint</left_elevator>
@@ -78,26 +84,33 @@
                   <rudder>subscale_model::rudder_joint</rudder>    
                 </plugin>
                 
-                <plugin name="left_wing" filename="libLiftDragPlugin.so">
-                  <a0>-0.10472</a0>
-                  <cla>4.584</cla>
-                  <cda>0.229</cda>
-                  <cma>1.146</cma>
-                  <alpha_stall>0.209</alpha_stall>
-                  <cla_stall>-3.85</cla_stall>
-                  <cda_stall>0.802</cda_stall>
-                  <cma_stall>0</cma_stall>
-                  <cp>-27 18 16</cp>
-                  <area>2.6</area>
-                  <air_density>1.2041</air_density>
-                  <forward>1 0 0</forward>
-                  <upward>0 0 1</upward>
-                  <link_name>subscale_model::left_wing</link_name>
-                  <control_joint_name>subscale_model::left_aileron_joint</control_joint_name>
-                  <control_joint_rad_to_cl>-2.0</control_joint_rad_to_cl>
-                </plugin>
 
                 <plugin name="right_wing" filename="libLiftDragPlugin.so">
+
+                  <cp>-18 -27 16</cp>
+                  <link_name>subscale_model::left_wing</link_name>
+                            
+                  <a0>-0.10472</a0>
+                  <cla>4.584</cla>
+                  <cda>0.229</cda>
+                  <cma>1.146</cma>
+                  <alpha_stall>0.209</alpha_stall>
+                  <cla_stall>-3.85</cla_stall>
+                  <cda_stall>0.802</cda_stall>
+                  <cma_stall>0</cma_stall>                
+                  <area>29</area>
+                  <air_density>1.2041</air_density>
+                  <forward>0 1 0</forward>
+                  <upward>0 0 1</upward>
+                
+                  <control_joint_name>subscale_model::left_aileron_joint</control_joint_name>
+                  <control_joint_rad_to_cl>-2.0</control_joint_rad_to_cl>
+                  
+                </plugin>
+             
+                <plugin name="left_wing" filename="libLiftDragPlugin.so">
+                  <cp>-18 27 16</cp>
+                  <link_name>subscale_model::right_wing</link_name>                           
                   <a0>-0.10472</a0>
                   <cla>4.584</cla>
                   <cda>0.229</cda>
@@ -106,54 +119,37 @@
                   <cla_stall>-3.85</cla_stall>
                   <cda_stall>0.802</cda_stall>
                   <cma_stall>0</cma_stall>
-                  <cp>-27 18 16</cp>
-                  <area>8.08255</area>
+                 
+                  <area>29</area>
                   <air_density>1.2041</air_density>
-                  <forward>1 0 0</forward>
-                  <upward>0 0 1</upward>
-                  <link_name>subscale_model::right_wing</link_name>
+                  <forward>0 1 0</forward>
+                  <upward>0 0 1</upward>  
                   <control_joint_name>subscale_model::right_aileron_joint</control_joint_name>
-                  <control_joint_rad_to_cl>-2.0</control_joint_rad_to_cl>
+                  <control_joint_rad_to_cl>-2.0</control_joint_rad_to_cl>      
                 </plugin>
                 
-                <plugin name="lelevator" filename="libLiftDragPlugin.so">
-                  <a0>0</a0>
-                  <cla>2</cla>
-                  <cda>0.3</cda>
-                  <cma>0</cma>
-                  <alpha_stall>0.15</alpha_stall>
-                  <cla_stall>-1.5</cla_stall>
-                  <cda_stall>0.6</cda_stall>
-                  <cma_stall>0</cma_stall>
-                  <cp>-9.7 65.4 8.509</cp>
-                  <area>0.33458</area>
-                  <air_density>1.2041</air_density>
-                  <forward>1 0 0</forward>
-                  <upward>0 0 1</upward>
-                  <link_name>subscale_model::stabilizers</link_name>
-                  <control_joint_name>subscale_model::left_elevator_joint</control_joint_name>
-                  <control_joint_rad_to_cl>-4.0</control_joint_rad_to_cl>
-                </plugin>
-                
-                 <plugin name="relevator" filename="libLiftDragPlugin.so">
-                  <a0>0</a0>
-                  <cla>2</cla>
-                  <cda>0.3</cda>
-                  <cma>0</cma>
-                  <alpha_stall>0.15</alpha_stall>
-                  <cla_stall>-1.5</cla_stall>
-                  <cda_stall>0.6</cda_stall>
-                  <cma_stall>0</cma_stall>
-                  <cp>9.7 65.4 8.509</cp>
-                  <area>0.33458</area>
-                  <air_density>1.2041</air_density>
-                  <forward>1 0 0</forward>
-                  <upward>0 0 1</upward>
-                  <link_name>subscale_model::stabilizers</link_name>
-                  <control_joint_name>subscale_model::right_elevator_joint</control_joint_name>
-                  <control_joint_rad_to_cl>-4.0</control_joint_rad_to_cl>
-                </plugin>
 
+<plugin name="relevator" filename="libLiftDragPlugin.so">
+
+                 <cp>-64 0 8.509</cp> 
+
+                  <link_name>subscale_model::stabilizers</link_name>
+                  <a0>0</a0>
+                  <cla>2</cla>
+                  <cda>0.3</cda>
+                  <cma>0</cma>
+                  <alpha_stall>0.15</alpha_stall>
+                  <cla_stall>-1.5</cla_stall>
+                  <cda_stall>0.6</cda_stall>
+                  <cma_stall>0</cma_stall>
+            
+                  <area>2</area>
+                  <air_density>1.2041</air_density>
+                  <forward>0 1 0</forward>
+                  <upward>0 0 1</upward>
+                                  
+
+                </plugin>
 
                 <plugin name="rudder" filename="libLiftDragPlugin.so">
                   <a0>0</a0>
@@ -164,22 +160,14 @@
                   <cla_stall>-1.5</cla_stall>
                   <cda_stall>0.6</cda_stall>
                   <cma_stall>0</cma_stall>
-                  <cp>0 65.4 11.2</cp>
-                  <area>0.33458</area>
+                  <cp>-65.4 0 11.2</cp>
+                  <area>1</area>
                   <air_density>1.2041</air_density>
-                  <forward>1 0 0</forward>
+                  <forward>0 1 0</forward>
                   <upward>0 0 1</upward>
                   <link_name>subscale_model::stabilizers</link_name>
-                  <control_joint_name>subscale_model::rudder_joint</control_joint_name>
-                  <control_joint_rad_to_cl>-4.0</control_joint_rad_to_cl>
+
                 </plugin>
-
-                
-                
-
- 
-
-
     </model>
   </world>
 </sdf>
