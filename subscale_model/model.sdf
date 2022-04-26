@@ -1,390 +1,71 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
   <model name='subscale_model'>
+  <pose> 0 0 0 0 0 1.57 </pose>
     <link name='fuselage'>
     <!--Clean up in future-->
       <inertial>
-        <mass>0.115</mass>
+        <mass>80</mass>
         <inertia>
-          <ixx>0.166667</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.166667</iyy>
-          <iyz>0</iyz>
-          <izz>0.166667</izz>
+          <iyy>1000</iyy>
+          <ixy>0.0</ixy>
+          <ixx>9000</ixx>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>800</izz>
         </inertia>
         <pose>0.071 24.701 4.144 0 -0 0</pose>
       </inertial>
       <pose>0.010625 -0.006549 0 0 -0 0</pose>
      
-      <self_collide>0</self_collide>
-      <kinematic>0</kinematic>
-      <enable_wind>0</enable_wind>
+
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage (1).stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Blue</name>
+          </script>
+          </material>
+      </visual>
+      
+            <visual name="cp_left_wing">
+        <pose>-27 18 16 0 0 0</pose>
+        <geometry>
+          <sphere><radius>1</radius></sphere>
+        </geometry>
+      </visual>
+    
+      <collision name='collision'>
         <geometry>
           <mesh>
             <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage (1).stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
-          <ambient>0.3 0.3 0.3 1</ambient>
-          <diffuse>0.7 0.7 0.7 1</diffuse>
-          <specular>0.01 0.01 0.01 1</specular>.
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-      <collision name='collision'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Fuselage (1).stl</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
       </collision>
     </link>
     
-    <link name='stabilizers'>
-      <inertial>
-        <mass>0.006</mass>
-        <inertia>
-          <ixx>0.166667</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.166667</iyy>
-          <iyz>0</iyz>
-          <izz>0.166667</izz>
-        </inertia>
-        <pose>0 65.213 9.393 0 -0 0</pose>
-      </inertial>
-      <pose>-0.007465 -0.001724 0 0 -0 0</pose>
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Stabalizers.stl</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <shader type='pixel'/>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-      <collision name='collision'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Stabalizers.stl</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
-      </collision>
-    </link>
-    
-    <link name='left_aileron'>
-      <inertial>
-        <mass>0.004</mass>
-        <inertia>
-          <ixx>0.166667</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.166667</iyy>
-          <iyz>0</iyz>
-          <izz>0.166667</izz>
-          
-        </inertia>
-        <pose>-50.177 32.298  15.251 0 -0 0</pose>
-      </inertial>
-      <pose>0.001717 0.004642 0 0 -0 0</pose>
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Aileron.stl</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <shader type='pixel'/>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-      <collision name='collision'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Aileron.stl</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
-      </collision>
-    </link>
-    <link name='left_elevator'>
-      <inertial>
-        <mass>0.002</mass>
-        <inertia>
-          <ixx>0.166667</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.166667</iyy>
-          <iyz>0</iyz>
-          <izz>0.166667</izz>
-        </inertia>
-        <pose>-10.7 70.77 8.213 0 -0 0</pose>
-      </inertial>
-      <pose>-0.011106 0.004567 0 0 -0 0</pose>
-      <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Elevator.stl</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <shader type='pixel'/>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-      <collision name='collision'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Elevator.stl</uri>
-            <scale>1 1 1</scale>
-          </mesh>
-        </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
-      </collision>
-    </link>
+   
     <link name='left_wing'>      
       <inertial>
-        <mass>0.091</mass>
+        <mass>30</mass>
         <inertia>
-          <ixx>0.166667</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.166667</iyy>
-          <iyz>0</iyz>
-          <izz>0.166667</izz>
+          <ixx>867</ixx>
+          <ixy>-241</ixy>
+          <ixz>485</ixz>
+          <iyx>-241</iyx>
+          <iyy>9025</iyy>
+          <iyz>36</iyz>
+          <izx>485</izx>
+          <izy>36</izy>
+          <izz>9810</izz>
+
         </inertia>
         <pose>-31.006 21.669 14.927  0 -0 0</pose>
       </inertial>
@@ -418,63 +99,140 @@
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
+    
       </collision>
     </link>
-    <link name='right_aileron'>
+     
+     
+   <link name='motor'>
+    <inertial>
+      <mass>80</mass>
+      <inertia>
+        <ixx>100</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>100</iyy>
+        <iyz>0</iyz>
+        <izz>100</izz>
+      </inertia>
+      <pose>0 0 4.144 0 -0 0</pose>
+    </inertial>
+    <pose>0.010625 -0.006549 0 0 -0 0</pose>
+  </link>
+  
+    
+    <link name='right_wing'>
       <inertial>
-        <mass>0.004</mass>
+        <mass>30</mass>
+        <inertia>      
+          <ixx>867</ixx>
+          <ixy>241</ixy>
+          <ixz>-485</ixz>
+          <iyx>241</iyx>
+          <iyy>9025</iyy>
+          <iyz>36</iyz>
+          <izx>-485</izx>
+          <izy>36</izy>
+          <izz>9810</izz>
+        </inertia>
+        <pose>31.006 21.669 14.927  0 -0 0</pose>
+      </inertial>
+      <pose>-0.009494 0.005806 0 0 -0 0</pose>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Wing.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Wing.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+       
+      </collision>
+    </link>
+
+
+   <link name='stabilizers'>
+      <inertial>
+        <mass>12</mass>
         <inertia>
-          <ixx>0.166667</ixx>
+          <ixx>17</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.166667</iyy>
+          <iyy>178</iyy>
+          <iyz>-0.3</iyz>
           <iyz>0</iyz>
-          <izz>0.166667</izz>
+          <izy>-0.3</izy>
+          <izz>173</izz>
+        </inertia>
+        <pose>0 65.213 9.393 0 -0 0</pose>
+      </inertial>
+      <pose>-0.007465 -0.001724 0 0 -0 0</pose>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Stabalizers.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Stabalizers.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    
+  <link name='right_aileron'>
+      <inertial>
+        <mass>2</mass>
+        <inertia>
+          <ixx>2.806</ixx>
+          <ixy>-0.01</ixy>
+          <ixz>-3.35</ixz>
+          <iyx>-0.015</iyx>
+          <iyy>64.45</iyy>
+          <iyz>0.29</iyz>
+          <izx>-3.35</izx>
+          <izy>0.29</izy>
+          <izz>66.62</izz>
           
         </inertia>
         <pose>50.177 32.298  15.251 0 -0 0</pose>
@@ -509,63 +267,73 @@
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <surface>
-          <friction>
-            <ode>0.
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>0
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
+       
       </collision>
     </link>
-    <link name='right_elevator'>
+    
+     <link name='left_aileron'>
       <inertial>
-        <mass>0.002</mass>
+        <mass>2</mass>
         <inertia>
-          <ixx>0.166667</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.166667</iyy>
-          <iyz>0</iyz>
-          <izz>0.166667</izz>
+          <ixx>2.806</ixx>
+          <ixy>0.01</ixy>
+          <ixz>3.35</ixz>
+          <iyx>0.015</iyx>
+          <iyy>64.45</iyy>
+          <iyz>0.29</iyz>
+          <izx>3.35</izx>
+          <izy>0.29</izy>
+          <izz>66.62</izz>
+          
+        </inertia>
+        <pose>-50.177 32.298  15.251 0 -0 0</pose>
+      </inertial>
+      <pose>0.001717 0.004642 0 0 -0 0</pose>
+      <visual name='visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Aileron.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'/>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Aileron.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    
+     <link name='right_elevator'>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>-0.24</ixy>
+          <ixz>-0.001</ixz>
+          <iyx>-0.24</iyx>
+          <iyy>16.76</iyy>
+          <iyz>-0.007</iyz>
+          <izx>-0.0017</izx>
+          <izy>-0.007</izy>
+          <izz>17.78</izz>
         </inertia>
         <pose>10.7 70.77 8.213 0 -0 0</pose>
       </inertial>
@@ -599,91 +367,32 @@
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
       </collision>
     </link>
 
-  <link name='motor'>
-    <inertial>
-      <mass>0.035</mass>
-      <inertia>
-        <ixx>0.166667</ixx>
-        <ixy>0</ixy>
-        <ixz>0</ixz>
-        <iyy>0.166667</iyy>
-        <iyz>0</iyz>
-        <izz>0.166667</izz>
-      </inertia>
-      <pose>0 0 4.144 0 -0 0</pose>
-    </inertial>
-    <pose>0.010625 -0.006549 0 0 -0 0</pose>
-  </link>
-
-
-    
-    <link name='right_wing'>
+ 
+    <link name='left_elevator'>
       <inertial>
-        <mass>0.091</mass>
+        <mass>1</mass>
         <inertia>
-          <ixx>0.166667</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.166667</iyy>
-          <iyz>0</iyz>
-          <izz>0.166667</izz>
+          <ixx>1</ixx>
+          <ixy>0.24</ixy>
+          <ixz>0.001</ixz>
+          <iyx>0.24</iyx>
+          <iyy>16.76</iyy>
+          <iyz>-0.007</iyz>
+          <izx>0.0017</izx>
+          <izy>-0.007</izy>
+          <izz>17.78</izz>
         </inertia>
-        <pose>31.006 21.669 14.927  0 -0 0</pose>
+        <pose>-10.7 70.77 8.213 0 -0 0</pose>
       </inertial>
-      <pose>-0.009494 0.005806 0 0 -0 0</pose>
+      <pose>-0.011106 0.004567 0 0 -0 0</pose>
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Wing.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Elevator.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -704,67 +413,89 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Right Wing.stl</uri>
+            <uri>/home/harish/Downloads/FCA-Simulation-main/Stls/Left Elevator.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
       </collision>
     </link>
-    <link name='rudder'>
+
+
+    <joint name = 'body3' type = 'fixed'>
+    	<parent>fuselage</parent>
+    	<child>right_wing</child>
+    </joint>gazeb
+
+
+    <joint name = 'body4' type = 'fixed'>
+    	<parent>fuselage</parent>
+    	<child>left_wing</child>
+    </joint>
+
+
+    <joint name = 'body5' type = 'fixed'>
+    	<parent>fuselage</parent>
+    	<child>stabilizers</child>
+    </joint>
+
+    <!--Joint for Right Aileron-->
+    <joint name='right_aileron_joint' type = 'revolute'>
+      <parent>right_wing</parent>
+      <child>right_aileron</child>
+      <pose>50 31 14.8 0 -0.052 0</pose> <!--TODO-->
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.261667</lower>
+          <upper>0.349066</upper>
+          <velocity>0.61</velocity>
+          <effort>1</effort>
+        </limit>
+      </axis>
+    </joint>
+
+    
+    <!--Joint for Left Aileron-->
+    <joint name='left_aileron_joint' type = 'revolute'>
+      <parent>left_wing</parent>
+      <child>left_aileron</child>
+      <pose>-50 31 14.8 0 0.052 0</pose> <!--TODO-->
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.261667</lower>
+          <upper>0.349066</upper>
+          <velocity>0.61</velocity> <!--Max velocity/effort? Also is effort similar to torqe or-->
+          <effort>1</effort>
+        </limit>
+      </axis>
+    </joint>
+
+ <!--Joint for Right Elevator-->
+    <joint name='left_elevator_joint' type = 'revolute'>
+      <parent>stabilizers</parent>
+      <child>left_elevator</child>
+      <pose>-20 68.7 8.2 0 -0 0</pose> <!--TODO-where's the joint gonna be -->
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.261667</lower>
+          <upper>0.349066</upper>
+          <velocity>0.61</velocity>
+          <effort>1</effort>
+        </limit>
+      </axis>
+    </joint>
+    
+       <link name='rudder'>
       <inertial>
-        <mass>0.002</mass>
+        <mass>1</mass>
         <inertia>
-          <ixx>0.166667</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.166667</iyy>
-          <iyz>0</iyz>
-          <izz>0.166667</izz>
+          <ixx>13</ixx>      
+          <iyy>11</iyy>
+          <iyz>-0.12</iyz>
+          <izy>-0.12</izy>
+          <izz>1.81</izz>
         </inertia>
         <pose>0 71.795 11.808 0 -0 0</pose>
       </inertial>
@@ -798,109 +529,10 @@
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
-              <fdir1>0 0 0</fdir1>
-              <slip1>0</slip1>
-              <slip2>0</slip2>
-            </ode>
-            <torsional>
-              <coefficient>1</coefficient>
-              <patch_radius>0</patch_radius>
-              <surface_radius>0</surface_radius>
-              <use_patch_radius>1</use_patch_radius>
-              <ode>
-                <slip>0</slip>
-              </ode>
-            </torsional>
-          </friction>
-          <bounce>
-            <restitution_coefficient>0</restitution_coefficient>
-            <threshold>1e+06</threshold>
-          </bounce>
-          <contact>
-            <collide_without_contact>0</collide_without_contact>
-            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-            <collide_bitmask>1</collide_bitmask>
-            <ode>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
-            </ode>
-            <bullet>
-              <split_impulse>1</split_impulse>
-              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-              <soft_cfm>0</soft_cfm>
-              <soft_erp>0.2</soft_erp>
-              <kp>1e+13</kp>
-              <kd>1</kd>
-            </bullet>
-          </contact>
-        </surface>
+       
       </collision>
     </link>
-    
-
-   
-
-
-    <joint name = 'body3' type = 'fixed'>
-    	<parent>fuselage</parent>
-    	<child>right_wing</child>
-    </joint>
-
-
-    <joint name = 'body4' type = 'fixed'>
-    	<parent>fuselage</parent>
-    	<child>left_wing</child>
-    </joint>
-
-
-    <joint name = 'body5' type = 'fixed'>
-    	<parent>fuselage</parent>
-    	<child>stabilizers</child>
-    </joint>
-
-
-    <!--Joint for Left Aileron-->
-    <joint name='left_aileron_joint' type = 'revolute'>
-      <parent>left_wing</parent>
-      <child>left_aileron</child>
-      <pose>-50 31 14.8 0 0.052 0</pose> <!--TODO-->
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>-0.261667</lower>
-          <upper>0.349066</upper>
-          <velocity>0.61</velocity> <!--Max velocity/effort? Also is effort similar to torqe or-->
-          <effort>1</effort>
-        </limit>
-      </axis>
-    </joint>
-
-    <!--Joint for Right Aileron-->
-    <joint name='right_aileron_joint' type = 'revolute'>
-      <parent>right_wing</parent>
-      <child>right_aileron</child>
-      <pose>50 31 14.8 0 -0.052 0</pose> <!--TODO-->
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>-0.261667</lower>
-          <upper>0.349066</upper>
-          <velocity>0.61</velocity>
-          <effort>1</effort>
-        </limit>
-      </axis>
-    </joint>
-
-    <!--Joint for Right Elevator-->
+   <!--Joint for Right Elevator-->
     <joint name='right_elevator_joint' type = 'revolute'>
       <parent>stabilizers</parent>
       <child>right_elevator</child>
@@ -915,24 +547,6 @@
         </limit>
       </axis>
     </joint>
-
-    <!--Joint for Right Elevator-->
-    <joint name='left_elevator_joint' type = 'revolute'>
-      <parent>stabilizers</parent>
-      <child>left_elevator</child>
-      <pose>-20 68.7 8.2 0 -0 0</pose> <!--TODO-where's the joint gonna be -->
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>-0.261667</lower>
-          <upper>0.349066</upper>
-          <velocity>0.61</velocity>
-          <effort>1</effort>
-        </limit>
-      </axis>
-    </joint>
-    
- 
 
     <!--Joint for Rudder-->
     <joint name='rudder_joint' type = 'revolute'>
@@ -949,7 +563,13 @@
         </limit>
       </axis>
     </joint>
-
+    
+    
+        <joint name = 'motorjoint' type = 'fixed'>
+    	<parent>fuselage</parent>
+    	<child>motor</child>
+    </joint>
+    
     <static>0</static>
     <allow_auto_disable>1</allow_auto_disable>
   </model> 
